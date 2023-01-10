@@ -1,0 +1,139 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!----スライダー見た目-------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+<style>
+  /*--------画像サイズ調整---------*/
+  .slider img{ width:100%; }
+  /*-------- 高さ調整 ----------*/
+  .slick-slide{ height:auto ;
+    margin-right: 1vw!important; /*ヒューポートに対して*/
+    margin-left: 1vw!important;  /*1%のマージン*/
+  }
+  .slick-next{right:10px ;}
+  .slick-prev{left:10px ;}
+  .slick-arrow{ width: initial;
+    height: initial;
+    z-index:2 ; 
+  }
+  .slick-arrow:before{ font-size: 30px;}
+
+  /* 2つ目のスライダー */
+.slider1 img{ height:100%;width:auto }
+.slider1{
+    margin: 100px auto;
+    width: 80%;
+}
+.slider1 .ele1{
+    height: 150px;
+    width: 150px;
+    border: solid 1px black;
+    text-align: center;
+}
+
+.ele1 span{
+  position: absolute;
+  top: 0;
+}
+</style>
+
+<div class="slider">   
+  <div><img src="./img/index1.jpg"></div>
+  <div><img src="./img/index2.jpg"></div>   
+  <div><img src="./img/index3.jpg"></div>
+</div>
+
+   <h2>ダウンロードしたslickファイルでカルーセルスライダーを表示</h2>
+    <div class="slider1">
+      <div><p class= "ele1">
+        <img src="animal/キツネ.png">  
+        <span>要素1</span>
+      </p></div>
+
+      <div><p class= "ele1"><img src="animal/スカンク.png"> <span>要素2</span></p></div>
+      <div><p class= "ele1"><img src="animal/セイウチ.png"> <span>要素3</span></p></div>
+      <div><p class= "ele1"><img src="animal/ロバ.png">    <span>要素4</span></p></div>
+      <div><p class= "ele1"><img src="animal/ペンギン.png"> <span>要素5</span></p></div>
+      <div><p class= "ele1"><img src="animal/ネズミ.png">  <span> 要素6</span></p></div>
+    </div><span>
+
+      <div class="slider2">
+        <div><p class= "ele1">
+          <img src="animal/キツネ.png">  
+          <span>要素1</span>
+        </p></div>
+  
+        <div><p class= "ele1"><img src="animal/スカンク.png"> <span>要素2</span></p></div>
+        <div><p class= "ele1"><img src="animal/セイウチ.png"> <span>要素3</span></p></div>
+        <div><p class= "ele1"><img src="animal/ロバ.png">    <span>要素4</span></p></div>
+        <div><p class= "ele1"><img src="animal/ペンギン.png"> <span>要素5</span></p></div>
+        <div><p class= "ele1"><img src="animal/ネズミ.png">  <span> 要素6</span></p></div>
+      </div><span>
+
+<!-----jQuery----> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!----スライダー動かすやつ------>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+ 
+// slick 関数にjsオブジェクト(連想配列)を引数で渡すことで動くようになる  
+$('.slider').slick({
+  autoplay: true,       //⾃動再⽣
+  autoplaySpeed: 2000,  //⾃動再⽣のスピード
+  speed: 800,           //スライドするスピード
+  dots: true,           //スライドしたのドット
+  arrows: true,         //左右の⽮印
+  infinite: true,       //スライドのループ
+  pauseOnHover: false,  //ホバーしたときにスライドを⼀時停⽌しない 
+  /*----両サイドを表示----*/
+  centerMode:true,
+  centerPadding:"20%",
+});
+
+jQuery(".slider1").slick({
+   dots:true,
+   autoplay: true,      //⾃動再⽣
+   autoplaySpeed: 2000, //⾃動再⽣のスピード
+   infinite: true,   //スライドのループ
+   slidesToShow: 4,  //一度に映る要素の数 最大数にすると動かなくなる
+   slidesToScroll: 2 //2枚ずつ入れ替わるの意味
+  });
+
+  jQuery(".slider2").slick({
+    dots:true,
+   autoplay: true,      //⾃動再⽣
+   autoplaySpeed: 2000, //⾃動再⽣のスピード
+   infinite: true,   //スライドのループ
+   slidesToShow: 4,  //一度に映る要素の数 最大数にすると動かなくなる
+   slidesToScroll: 2, //2枚ずつ入れ替わるの意味
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+
+  ]
+});
+</script>

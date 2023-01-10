@@ -1,0 +1,531 @@
+@charset 'utf-8';
+
+/* テキストの自動拡大を無効化 */
+body {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* ページ全体の設定 */
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/*「ヘッダー」ブロック*/
+header {
+	padding: 25px 15px 0 ;
+	color: #29abe2;
+	text-align: center;
+	/*
+	font-size: 36px;
+	font-weight: bold;
+	font-family: 'Exo 2', sans-serif;
+	まとめがき ショートハンドな書き方*/
+	font: bold 36px/150% 'Exo 2';
+}
+#nav-content ul{
+	list-style: none;
+	font-size: 1.15rem;
+	color: #666666;
+	text-align:left;
+}
+
+/*リンク*/
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a .fas {
+	transition: all .4s;
+}
+
+a:hover .fas{transform: rotate(45deg);}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+/*ナビゲーションメニュー*/
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    color: #666666;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+nav li:not(:last-child) {
+    margin-right: 20px;
+}
+.submenu{position: relative;}
+.submenu > ul{display: none;
+	position: absolute;box-shadow: 2px 2px 3px #999;
+	width: 10em; background-color: #fefefe;
+}
+.submenu:hover > ul{display: block;}
+
+
+/*「コンテンツ」ブロック*/
+
+@media (min-width: 1900px){
+.contents {
+    background-color: #29abe2;
+    padding: 40px 15px;
+}
+    .contents:hover {
+		padding-top: 40px ; /*一方だけならこうするべき*/ 
+	}
+	ul{list-style-type:circle;
+		list-style-image:url(cofee.jpg);  
+	}
+    ul{list-style:none; } /*これだとどっちも消える*/
+	/*ショートハンド以外の書き方をしない ボーダー
+	(幅, 初期値 2px
+	線種, 必須
+	色)  初期値=文字色
+	*/
+	li{border: dotted #ccc; color: red}
+}
+/* 追加のせいうち */
+
+
+/*記事*/
+article {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    line-height: 2;
+}
+
+.migiyose {
+    border: solid 5px #31c5ff;
+    text-align: right;
+}
+
+/*画像*/
+img {
+    width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0;
+}
+
+/*投稿日*/
+time {
+    color: #666666;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/*サブメニュー*/
+aside {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #29abe2;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: normal;
+    text-align: center;
+}
+
+/*サブメニュー：プロフィール*/
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile figure {
+    text-align: center;
+}
+
+.profile p {
+    font-size: 14px;
+    text-align: center;
+}
+
+/*サブメニュー:注目記事メニュー*/
+.topics ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.topics a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.topics figure {
+    width: 100px;
+    flex: none;
+}
+
+.topics img {
+    vertical-align: bottom;
+}
+
+.topics h3 {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+/*「フッター」ブロック*/
+footer {
+    background-color: #6ac4eb;
+    padding: 25px 15px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* トップページ：ヒーローイメージ */
+.hero {
+    background-image: url(img/walk.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 532px;
+    color: #ffffff;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-family: 'Exo 2', sans-serif;
+    text-shadow: 0 0 10px #444;
+    text-align: center;
+}
+
+.hero p {
+    font-weight: bold;
+    text-shadow: 0 0 10px #444;
+    margin-top: 0;
+}
+
+.hero a {
+    border: solid 2px #fff;
+    padding: 10px 40px;
+    border-radius: 10px;
+    background-color: rgba(41, 171, 226, 0.7);
+    margin-top: 10px;
+}
+a img{filter:brightness(.9)}
+a:hover img{filter:brightness(1)}
+
+/* トップページ：記事一覧 */
+.toppost {
+    padding: 15px;
+}
+
+.toppost div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.toppost article {
+    padding: 0;
+    width: 48%;
+    flex: none;
+}
+
+.toppost article:not(:nth-last-child(-n+2)) {
+    margin-bottom: 12px;
+}
+
+.toppost h3 {
+    margin: 0;
+    font-size: 14px;
+}
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+.col-6{width: 50%;}
+.desingation{width: 60px;}
+.float{float: left;}
+.mr-4{margin-right: 2em;}
+.mt-8{margin-top: 4em;}
+
+
+/* 「サイトについて」ページ */
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: solid 1px #ccc;
+    padding: 18px;
+}
+
+th {
+    width: 4em;
+    text-align: left;
+    background-color: #135977;
+    color: #fff;
+}
+
+td {
+    background-color: #e8eef9;
+}
+
+/* 「お問い合わせ」ページ */
+input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+textarea {
+    height: 120px;
+}
+
+input[type="submit"] {
+    background-color: #ffaa00;
+    border: none;
+    -webkit-appearance: none;
+}
+
+.multiple-item {
+	width: 95%;
+	margin: auto;
+}
+.slick-list {
+	max-height: 300px
+}
+.slick-next:before {
+	content: '→';
+}
+.slick-prev:before,
+.slick-next:before {
+	font-family: 'slick';
+	font-size: 20px;
+	line-height: 1;
+	opacity: .75;
+	color: #000000;
+}
+
+/* コピペ */
+
+#nav-drawer {
+    position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+    display: none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/*ハンバーガーの形をCSSで表現*/
+#nav-open span,
+#nav-open span:before,
+#nav-open span:after {
+    position: absolute;
+    height: 3px;
+    /*線の太さ*/
+    width: 25px;
+    /*長さ*/
+    border-radius: 3px;
+    background: #555;
+    display: block;
+    content: '';
+    cursor: pointer;
+}
+
+#nav-open span:before {
+    bottom: -8px;
+}
+
+#nav-open span:after {
+    bottom: -16px;
+}
+
+/*閉じる用の薄黒箇所*/
+#nav-close {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+/*メニューの中身*/
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 90%;
+    max-width: 330px;
+    /*最大幅（お好みで調整を）*/
+    height: 100%;
+    background: #fff;
+    transition: .3s ease-in-out;
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);
+}
+
+/*チェックがついたら表示させる*/
+#nav-input:checked~#nav-close {
+    display: block;
+    opacity: .5;
+}
+
+#nav-input:checked~#nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
+}
+
+.header-logo-menu {
+    display: flex;
+    flex-direction: row;
+justify-content: end;
+}
+
+/*ロゴやサイトタイトルをセンタリング*/
+.logo-area{text-align:center;margin:auto;}
+
+.col-12{width: 100%;}
+
+.nav-pc{display: none;}
+
+/* ==== PC版 ==== */
+@media (min-width:600px) {
+    #nav-open {
+        display: none;
+    }
+
+    .nav-pc {
+        display: block;
+    }
+
+	.col-md-6{width: 50%;}
+
+    /*PC版：コンテナ*/
+    .container {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /*PC版：「ヘッダー」ブロック内コンテナ*/
+    header .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* 追加のせいうち */
+    .seiuti {
+        float: left;
+    }
+
+    .seiuti {
+        text-align: center;
+    }
+
+    /*PC版：記事*/
+    h1 {
+        font-size: 40px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    /* PC版：トップページ：ヒーローイメージ */
+    .hero h1 {
+        font-size: 72px;
+    }
+
+    /* PC版：トップページ：記事一覧 */
+    .toppost article {
+        width: 23%;
+    }
+
+    .toppost article:not(:nth-last-child(-n+2)) {
+        margin-bottom: 0;
+    }
+
+    /* PC版：「お問い合わせ」ページ */
+    input[type="submit"] {
+        width: 250px;
+    }
+
+
+
+}
+
+/* ==== PC版の設定ここまで ==== */
+
+/* ====PC版（大） ==== */
+@media (min-width: 1025px) {
+
+    /* PC版（大）：コンテナ */
+    .container {
+        max-width: 1100px;
+    }
+
+    /* PC版（大）：「コンテンツ」ブロック内のコンテナ */
+    .contents .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* PC版（大）：記事 */
+    article {
+        width: 68%;
+        box-sizing: border-box;
+    }
+
+    /* PC版（大）：サブメニュー */
+    .sub {
+        width: 28%;
+    }
+
+    /* PC版（大）：プロフィール */
+    .profile {
+        margin-top: 0;
+    }
+}
+
+/* ====PC版（大）の設定ここまで ====*/

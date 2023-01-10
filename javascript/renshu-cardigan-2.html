@@ -1,0 +1,54 @@
+<style>
+  /*position 場所 : 絶対位置 x,y=0,0 
+  重なり順 後が上  */
+  img{ position: absolute; width: 250px; }
+  img:first-child{ z-index: 3 ;} /*y軸が20px*/
+  img:nth-child(2){ z-index: 2; } /* 大きい数字がより前面*/
+  .col{margin-top: 50px; border: solid 1px ;height: 250px; width: 250px;
+    position: relative; }
+  /*absolute の親には relative を付けるべき */  
+  .flex{display: flex;}
+  .flex p{width: 50%; margin: 50px; }
+  .flex p label{display: block;}
+
+  /*画像の入れ替えを :hover 擬似クラスで書いてみましょう*/
+/*親タグは.col に:hoverをあてて､z-indexは複数あるので
+まずは最初に写っている画像(img:first-child)を指定する
+その後に{}で大きさ?を指定*/
+/*当てたのを前に出してるんではなくて､引っ込めてる*/
+ .col:hover img:first-child{z-index: 1;
+}
+</style>
+
+<body>
+  <section class="flex">
+    <div class="col">
+      <img src="shop-1.jpg" alt="後">
+      <img src="shop-2.jpg" alt="前">
+    </div>
+    <p>
+      <label><input type="radio" name="size" value="S">S</label>
+      <label><input type="radio" name="size" value="M">M</label>
+      <label><input type="radio" name="size" value="L">L</label>
+    </p>
+  </section>
+
+
+
+<script src="./jquery-3.6.3.min.js" ></script>
+<script> 
+ $('[name="size"]').change(function(){
+  var val = $(this).val();
+  console.log(val);   // ← 一応確認
+  $('.stock').remove() ;// ← 要素の削除
+  switch (val) {
+    case "L":
+      $('[name="size"]:checked')
+        .after("<b class='stock'>只今在庫切れです!</b>");
+      break;
+    }
+
+});
+
+</script>  
+</body>

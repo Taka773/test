@@ -1,0 +1,76 @@
+
+	<meta charset="UTF-8">
+<style>
+	/* position  場所   absolute 絶対位置 x,y=0,0 
+	重なり順 後が上にある */
+	img {
+		/*position: absolute;*/
+		width: 250px;
+	}
+	/* img:first-child {
+		z-index: 3; ポジションに対して作用するもの*/
+	/* 	top: 20px
+	}y軸が20px の意味 
+	img:nth-child(2) {
+
+	}	/* 大きい数字がより前面 */
+	.col {
+		margin-top: 50px;
+		border: solid 1px;
+		height: 250px;
+		width: 250px;
+		/*position: relative;*/
+	}/* absolute の親には relative をつけるべき */
+  .flex{display: flex;}
+  .flex p{width: 50%; margin: 50px; }
+  .flex p label{display: block;}
+</style>
+
+<body>
+	<section class="flex">
+	<div class="col">
+<!--		<img src="shop-1.jpg" alt="後"> -->
+<img src="shop-2.jpg" alt="前">
+</div>
+<p>
+	<label>
+	  <input type="radio" name="size" data-stock="50" value="S">S</label>
+	<label>
+	  <input type="radio" name="size" data-stock="1" value="M">M</label>
+	<label>
+	  <input type="radio" name="size" data-stock="0" value="L">L</label>
+  </p>
+</section>
+<input id="add-cart" type="submit" value="カートに追加する">
+
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script> 
+$('[name="size"]').change(function(){
+  var stock = $(this).data('stock'); //data-stockの値を取得
+  console.log(stock);   // ← 一応確認
+  $('.stock').remove() ;// ← 要素の削除,出す前に消したいので
+  if ( stock == 0 ) {
+    $(this).parent().append("<b class='stock'>只今在庫切れです!</b>");
+  }else if( stock <= 2 ){
+    $(this).parent().append(`<b class='stock'>残り${stock}</b>`);
+  }
+});
+$('#add-cart').prop('disabled',true);
+
+		// マウスの inイベント をキャッチして
+		// .CSS メソッドで z-index を変えると入れ替わる(入れ替わったように見える)
+		// src属性(attr)を入れ替えればもっと簡単(cssは不要 imgも一つ
+		$('.col').mouseenter(function(){
+    $('img').attr('src','shop-1.jpg').attr('alt','前');
+  }).mouseleave(function(){
+    $(this).children().eq(0).attr('src','shop-2.jpg').attr('alt','後');
+  });
+		// $('img').mouseenter(function () {
+		//　↑セレクタがimgだから2枚とも適用になる
+		//　↑画像内で動かすと激しく入れ替わる（必然）
+			//$('img:first-child').css('z-index', 1);
+	
+			// 3と1を入れ替えるから.eqは0(になるらしい??)
+		
+	</script>
+</body>

@@ -1,0 +1,85 @@
+
+	<meta charset="UTF-8">
+  <style>
+   /* label{display: flex;align-items: center;}
+    label img{width: 80px; height: auto;} 
+    CSSは上に書く block要素で<br>と同じように改行
+    下部にJqueryで書いたのあり*/
+    [name="pet"]:checked + img{filter: brightness(1.5);}
+    /* +は隣接､次のみたいな意味 ｡フィルターのブライトネスは明るさ */
+  </style>
+<p id="pet">えらんだペットをここに出す</p>
+<h4>一番飼いたいペットは </h4>
+<form>
+ <!-- ここに各ペットのチェックBOXをだしてください -->
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" ></script>
+<script>
+var pets = [
+    "イヌ" , "ネコ" , "ウサギ" , "ハムスター", "熱帯魚"
+  ];
+  var input = '';  // これに連結代入するため初期化
+// js で配列を回す書き方
+for( var i in pets){
+    console.log(pets[i]); //iは配列のインデックス 0,1,2..4
+    //ここで<input> を文字連結する
+    //phpの "<p> $pet </p>"に相当する書き方
+    input += `<label><input type="radio" name="pet" 
+      value="${pets[i]}">
+      <img src="${pets[i]}.jpg" alt="${pets[i]}">
+      </label>`;
+    //input += '<input type="checkbox" 
+    //+ pets[i] + '">'
+    //+ pets[i] + '<br>;
+  }
+
+    $('form').append(input);
+    //formの要素内に追加する  
+    //.append form内の後に追加する
+    //.html form内の要素を上書きする
+    $('label').css('display','flex').css('align-items','center');
+    $('label img').css({
+      'width': '40px','height':'auto'}); 
+
+
+      $('[name="pet"]').change(function(){ //無名関数
+        // ↑と↓は同じ意味
+        // $('[name="pet"]').on('change' ,function(){
+          //イベントを捕捉(キャッチ)
+          //イベントを発火させる
+        var val = $('[name="pet"]:checked').val() //onにした要素
+        console.log(val);
+        $('.cry').remove(); //要素の削除
+        switch (val){
+          case "イヌ":
+      $('[name="pet"]:checked + img')
+      .after("<b class='cry'>ワン!<br>"); //それぞれClassを当てる｡removeで消える
+      break;
+      case "ネコ":
+      $('[name="pet"]:checked + img')
+      .after("<b class='cry'>ニャア!<br>");
+      break;
+      case "ウサギ":
+      $('[name="pet"]:checked + img')
+      .after("<b class='cry'>ぴょん!<br>");
+      break;
+      case "ハムスター":
+      $('[name="pet"]:checked + img')
+      .after("<b class='cry'>ぴぃ!<br>");
+      break;
+      case "熱帯魚":
+      $('[name="pet"]:checked + img')
+      .after("<b class='cry'>ビチビチ!<br>");
+      break;
+  }
+		
+      //メソッドはオブジェクトで複数同時に書ける
+   // $('[type="radio"]').change( function(){
+    //var pet = $(this).val();
+    //$('#pet').(pet);  //選ばれてる値がでる
+    //})
+  });
+
+  
+</script>

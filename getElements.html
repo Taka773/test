@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <p>ここを変えてみる</p>
+  <p class="a">ここを変えてみる</p>
+  <p id="a">ここを変えてみる</p>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<!-- 動かない場合は読み込んでいるかデベロッパーで確認 -->
+
+  <script>
+jQuery(function(){
+  $('p').html('上書きしたよ!!');
+    $('.a').html('クラス要素を上書きしたよ!!');
+    $('#a').html('ID要素を上書きしたよ!!');
+});
+
+   /*
+     document.getElementsByTagName('p')[0].innerHTML='上書きしたよ!';
+     document.getElementsByClassName('a')[0].innerHTML='上書きしたよ!';
+     document.getElementById('a').innerHTML='上書きしたよ!';
+     //生のjsでHTMLを操作すると書き方がややこしいです
+     //こういうのはほとんどjQuery(ライブラリ)でやります
+     //だから滅多に使わないからgetElem...のは覚えなくて良いよ!
+ */
+  </script>
+</body>
+
+</html>

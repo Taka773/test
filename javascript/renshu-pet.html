@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+</head>
+<body>
+
+<p id="pet">
+	えらんだペットをここに出す
+</p>
+
+飼いたいペットは
+<form>
+<input type="checkbox" value="イヌ">イヌ<br>
+<input type="checkbox" value="ネコ">ネコ<br>
+<input type="checkbox" value="ウサギ">ウサギ<br>
+<input type="checkbox" value="ハムスター">ハムスター<br>
+<input type="checkbox" value="熱帯魚">熱帯魚<br>
+<input type="checkbox" value="他">この中には無い<br>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+<script>
+	$('form').prepend('<input type="checkbox" value="インコ">インコ<br>');
+	$('[type="checkbox"]').change( function(){
+    //changeのタイミングで無名関数が呼び出されて､実行される
+    var pet = $(this).val();
+	$('#pet').text(pet);  //選ばれてる値がでる
+  })
+</script>
+</body>
+</html>

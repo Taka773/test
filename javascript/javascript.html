@@ -1,0 +1,98 @@
+<html>
+
+<body>
+  最初から文字
+  条件式の練習
+  身長130cm 以上は乗れる､以下は乗れない
+</body>
+</html>
+
+<script>
+  var h = 131;
+  if (h >= 130) {
+    console.log('乗れる');
+  } else {
+    console.log(
+      '乗れない');
+  }
+</script>
+<p>
+  ↑ここでJavascriptが閉じられるので､ここはhtmlが書ける
+  営業部は10,000円､総務部は9,000円､経理部は8,000円､情報部は7,000円を
+  switch文で分岐して金額を出してみましょう
+
+  <script>
+    //単純な条件､分岐が多い場合はswich文の方が書きやすい
+    var darekano_busyo = "営業部";
+    switch (darekano_busyo) {
+      case "営業部":
+        console.log(10000 + '円');
+        break;
+      case "総務部":
+        console.log(9000 + '円');
+        break;
+      case "経理部":
+        console.log(8000 + '円');
+        break;
+      case "情報部":
+        console.log(7000 + '円')
+        break;
+      default:
+        console.log('そんな部はありません');
+        break;
+    }
+
+
+// for文もphpと同じです
+// 適当な4桁の数字かなにかを当てるループ
+// 1000~9999までループして､同じ数字なら"これです"と数字を出す
+var bango = 3984 ;
+for(var i = 1000 ; i < 10000 ; i++){
+  if( i == bango){
+    console.log("これです" + i );
+  }
+}
+  </script>
+
+  <script>
+    var a = [8, 17, 13];
+    console.log(a);
+
+    a[3] = 12; //phpでは自動的に(空白でも)[]に3が入るがjsはエラー
+    a[4] = 13; //こうすれば入ります
+    console.log(a);
+
+
+    // 演算子で違うのはドットとプラス
+    //どちらかが文字の場合は連結､両方とも数字なら演算
+    var sum = 12 + 13; //これはphpと同じ使い方
+    console.log(sum); //25
+
+    var str = "a,b,c,d";
+    console.log(str.split(',')); //abcd
+    //文字列を分解する関数 関数の一般的な書き方がphpと違う
+    /*
+      phpでは()内に全部入れます
+      $str + explode("," , $str)
+    */
+
+    var str = "ab" + "cd";
+    console.log(str); //abcd
+
+    var str = 12 + "cd";
+    console.log(str); //12cd
+
+    var str = 12 + 13 + "cd";
+    console.log(str); // 25cd (足し算された後文字)
+
+    var str = "cd" + 12 * 13;
+    console.log(str); //cd156 
+
+
+    console.log(12343); //スマホにデベロッパー2はないので､見る事ができない
+    //alert(5678); //スマホで確認したいときはアラートで見るしかない
+    // ↓変数宣言 が必要 (phpには無い) なくてもエラーにはならない $もいらない
+    var value = 1; // value を宣言し、数値 1 を代入
+    document.body.innerText = value; // body に出力
+//  ↑htmlのこと ↑ボディタグ ~の
+  </script>

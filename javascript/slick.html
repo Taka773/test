@@ -1,0 +1,66 @@
+<!--------------------スライダー見た目-------------------------------------------------->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+<!-------------------------------------------------------------------------------------> 
+<style>
+    /*------ スライダーの横幅 ------*/
+.slider{
+  width:70%;
+  margin:0 auto;
+}
+
+/*------ スライダー画像 ------*/
+.slider img{
+	width:100%;
+}
+
+/*-------- 高さ調整 ----------*/
+.slider .slick-slide{
+	height:auto!important;
+}
+
+/*---------- 矢印 ----------*/
+.slider .slick-next{
+    right:0!important;
+}
+.slider .slick-prev{
+    left:0!important;
+}
+.slider .slick-arrow{
+    width: initial!important;
+    height: initial!important;
+    z-index:2!important;
+}
+.slider .slick-arrow:before{
+    font-size: 30px!important;
+}
+</style>
+<!--------------------jQuery-----------------------------------------------------------> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!------------------------------------------------------------------------------------->  
+
+<!--------------------スライダー動かすやつ----------------------------------------------->  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<!-------------------------------------------------------------------------------------> 
+
+<div class="slider">   
+    <div><img src="img/index1.jpg"></div>
+    <div><img src="img/index2.jpg"></div>   
+    <div><img src="img/index3.jpg"></div>
+</div>  
+<script>
+$('.slider').slick({
+    autoplay: true,       //自動再生
+    autoplaySpeed: 2000,  //自動再生のスピード
+    speed: 800,           //スライドするスピード
+    dots: true,           //スライド下のドット
+    arrows: true,         //左右の矢印
+    fede: true,           //フェード
+    infinite: true,       //スライドのループ
+    pauseOnHpver: false,  //ホバーしたときにスライドを一時停止しない
+    //↓両サイドを表示↓
+    centerMode:true,
+    centerPadding:"20%",
+});
+</script>
+

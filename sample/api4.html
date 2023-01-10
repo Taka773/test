@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang='ja'>
+<head>
+    <meta charset='UTF-8'>
+    <title>郵便番号サンプル</title>
+    <link rel='stylesheet' type='text/css' href='./style.css'>
+</head>
+<body>
+<form action='api4.php' method='get'>
+    <p>
+        <label>郵便番号:</label>
+        <input type='number' name='zip'>
+        <input type='email' name='zip'> <!-- バリデーションとして完璧じゃないが送らせたい物にあったタイプ属性を最低限調べて書く -->
+    </p>
+    <p class='button'>
+        <input type='submit' value='送信するするボタン'>  <!-- submitは送信という意味 -->
+        <input type='button' value='ハリボテボタン'> <!-- 見えるだけで機能しない -->
+    </p>
+</form>
+</body>
+</html>
